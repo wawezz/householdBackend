@@ -5,9 +5,9 @@ use yii\mongodb\Connection;
 return 
 [
     'class' => Connection::class,
-    'dsn' => "mongodb://@mongo/MONGODB_DATABASE",
+    'dsn' => "mongodb://localhost/household",
     'options' => [
-        "username" => 'MONGODB_USERNAME',
-        "password" => 'MONGODB_PASSWORD'
+        "username" => 'dbAdmin',
+        "password" => '0301937HoST'
     ]
 ];

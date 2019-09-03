@@ -10,8 +10,11 @@
 
 use yii\console\Application;
 
+require __DIR__ . '/../bootstrap.php';
+
 $config = require __DIR__ . '/../config/console.php';
 
 $exitCode = (new Application($config))->run();
 
 exit($exitCode);
+
