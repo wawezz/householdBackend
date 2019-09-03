@@ -4,6 +4,8 @@ namespace backend\db\repositories\db;
 
 use backend\db\common\generator\SecretGenerator;
 use backend\db\models\User;
+use backend\db\normalizers\UserNormalizer;
+use backend\db\repositories\UserRepositoryInterface;
 use yii\mongodb\Connection;
 
 class DbUserRepository extends AbstractDbRepository implements UserRepositoryInterface
@@ -30,7 +32,7 @@ class DbUserRepository extends AbstractDbRepository implements UserRepositoryInt
         return $cursor->toArray();
     }
 
-    public function countAll($query): int
+    public function countAll($query = array()): int
     {
         return $this->collection->count($query);
     }

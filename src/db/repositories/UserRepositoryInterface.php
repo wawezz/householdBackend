@@ -18,7 +18,7 @@ interface UserRepositoryInterface
      * @param array|null $query
      * @return int
      */
-    public function countAll(array $query = null): int;
+    public function countAll(array $query = array()): int;
 
     /**
      * @param string $id
