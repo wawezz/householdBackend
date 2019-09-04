@@ -104,6 +104,8 @@ class UserController extends BaseController
 
     public function actionLogout()
     {
+	echo 1;
+exit;
         $id = \Yii::$app->user->id;
         \Yii::$app->user->logout();
 
@@ -215,9 +217,12 @@ class UserController extends BaseController
 
     public function actionRegistration()
     {
+Â	echo 11;
+exit;
         sleep($this->getSleepSeconds());
 
         $avatarId = 0;
+
         if (!empty($_FILES)) {
             /** @var \backend\forms\common\FileFormModel $Form */
             $Form = \Yii::$container->get(FileFormModel::class);

@@ -8,7 +8,7 @@ use backend\db\normalizers\UserNormalizer;
 use backend\db\repositories\UserRepositoryInterface;
 use yii\mongodb\Connection;
 
-class DbUserRepository extends AbstractDbRepository implements UserRepositoryInterface
+class DbUserRepository extends AbstractMongoDbRepository implements UserRepositoryInterface
 {
 
     /**
@@ -19,7 +19,7 @@ class DbUserRepository extends AbstractDbRepository implements UserRepositoryInt
 
     public function __construct(Connection $db, SecretGenerator $secretGenerator)
     {
-        parent::__construct($db);
+        parent::__construct($db, $secretGenerator);
 
         $this->secretGenerator = $secretGenerator;
         $this->collection = $this->db->getCollection('users');
@@ -32,7 +32,7 @@ class DbUserRepository extends AbstractDbRepository implements UserRepositoryInt
         return $cursor->toArray();
     }
 
-    public function countAll($query = array()): int
+    public function countAll(array $query = array()): int
     {
         return $this->collection->count($query);
     }
